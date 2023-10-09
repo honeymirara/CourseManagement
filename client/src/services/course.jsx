@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from 'reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const courseApi = createApi({
     reducerPath: 'courseApi',
@@ -11,7 +11,20 @@ export const courseApi = createApi({
                 body: data,
             }),
         }),
+        updateCourse: builder.mutation({
+            query: (data)=>({
+                url:`/course/${data.id}`,
+                method: 'PUT',
+                body: data,
+            }),
+        }),
+        deleteCourse: builder.mutation({
+            query: (data)=>({
+                url:`/course/${data.id}`,
+                method: 'DELETE',
+            }),
+        }),
     }),
 })
 
-export const { useCreateCourseMutation } = courseApi
+export const { useCreateCourseMutation, useUpdateCourseMutation, useDeleteCourseMutation} = courseApi

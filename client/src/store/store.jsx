@@ -1,6 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { courseApi } from '../services/course';
-
+import { courseApi } from '../services/course'
 const store = configureStore({
     reducer: {
         [courseApi.reducerPath]: courseApi.reducer

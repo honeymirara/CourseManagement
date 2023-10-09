@@ -1,6 +1,7 @@
 import style from './style.module.scss';
 import Header from '../../components/Header/Header'
 import { useState, useEffect } from 'react'
+import { useCreateCourseMutation, useUpdateCourseMutation, useDeleteCourseMutation } from '../../services/course';
 
 export default function HomePage() {
 
@@ -9,9 +10,13 @@ export default function HomePage() {
     const [value, setValue] = useState({
         id: '',
         course: '',
-        describtion: '',
+        description: '',
         city: ''
     })
+
+    const [createCourse] = useCreateCourseMutation()
+    const [updateCourse] = useUpdateCourseMutation()
+    const [deleteCourse] = useDeleteCourseMutation()
 
     useEffect(() => {
         setValue({})
@@ -25,8 +30,18 @@ export default function HomePage() {
         setValue({ ...value, [event.target.name]: event.target.value })
     }
 
-    const send = () => {
+    async function send() {
         console.log(value)
+        if (opt == 'Create') {
+            const temp = await createCourse(value)
+            console.log(temp.data);
+        } else if (opt == 'Update') {
+            const temp = await updateCourse(value)
+            console.log(temp.data)
+        } else if (opt == 'Delete') {
+            const temp = await deleteCourse(value)
+            console.log(temp.data)
+        }
     }
 
     const showContent = () => {
@@ -36,15 +51,15 @@ export default function HomePage() {
                     <div className={style.inputs}>
                         <div>
                             <p>Course</p>
-                            <input value = {value?.course||''} type="text" placeholder='Enter the name of course' onChange={changeValue} name='course' />
+                            <input value={value?.course || ''} type="text" placeholder='Enter the name of course' onChange={changeValue} name='course' />
                         </div>
                         <div>
                             <p>Description</p>
-                            <input value = {value?.description||''} type="text" placeholder='Enter the describtion of course' onChange={changeValue} name='description' />
+                            <input value={value?.description || ''} type="text" placeholder='Enter the describtion of course' onChange={changeValue} name='description' />
                         </div>
                         <div>
                             <p>Location</p>
-                            <input value = {value?.city||''} type="text" placeholder='Enter the City' onChange={changeValue} name='city' />
+                            <input value={value?.city || ''} type="text" placeholder='Enter the City' onChange={changeValue} name='city' />
                         </div>
 
                     </div>
@@ -56,19 +71,19 @@ export default function HomePage() {
                     <div className={style.inputs}>
                         <div>
                             <p>Course</p>
-                            <input value = {value?.course||''} type="text" placeholder='Enter the name of course' onChange={changeValue} name='course' />
+                            <input value={value?.course || ''} type="text" placeholder='Enter the name of course' onChange={changeValue} name='course' />
                         </div>
                         <div>
                             <p>Description</p>
-                            <input value = {value?.description||''} type="text" placeholder='Enter the describtion of course' onChange={changeValue} name='description' />
+                            <input value={value?.description || ''} type="text" placeholder='Enter the describtion of course' onChange={changeValue} name='description' />
                         </div>
                         <div>
                             <p>Location</p>
-                            <input value = {value?.city||''} type="text" placeholder='Enter the City' onChange={changeValue} name='city' />
+                            <input value={value?.city || ''} type="text" placeholder='Enter the City' onChange={changeValue} name='city' />
                         </div>
                         <div>
                             <p>ID</p>
-                            <input  value = {value?.id||''} type="text" placeholder='Enter Id' onChange={changeValue} name='id' />
+                            <input value={value?.id || ''} type="text" placeholder='Enter Id' onChange={changeValue} name='id' />
                         </div>
 
                     </div>
@@ -79,8 +94,8 @@ export default function HomePage() {
                 <>
                     <div className={style.inputs}>
                         <div>
-                            <p>Course</p>
-                            <input value = {value?.course||''}type="text" placeholder='Enter the name of course' onChange={changeValue} name='course' />
+                            <p>ID</p>
+                            <input value={value?.id || ''} type="text" placeholder='Enter id of course' onChange={changeValue} name='id' />
                         </div>
                     </div>
                 </>)
