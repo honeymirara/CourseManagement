@@ -1,13 +1,32 @@
 import style from './style.module.scss';
 import Header from '../../components/Header/Header'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function HomePage() {
 
     const [opt, setOpt] = useState('Create');
 
+    const [value, setValue] = useState({
+        id: '',
+        course: '',
+        describtion: '',
+        city: ''
+    })
+
+    useEffect(() => {
+        setValue({})
+    }, [opt])
+
     const changeOpt = (event) => {
         setOpt(event.target.textContent)
+    }
+
+    const changeValue = (event) => {
+        setValue({ ...value, [event.target.name]: event.target.value })
+    }
+
+    const send = () => {
+        console.log(value)
     }
 
     const showContent = () => {
@@ -17,15 +36,15 @@ export default function HomePage() {
                     <div className={style.inputs}>
                         <div>
                             <p>Course</p>
-                            <input type="text" placeholder='Enter the name of course' />
+                            <input value = {value?.course||''} type="text" placeholder='Enter the name of course' onChange={changeValue} name='course' />
                         </div>
                         <div>
                             <p>Description</p>
-                            <input type="text" placeholder='Enter the describtion of course' />
+                            <input value = {value?.description||''} type="text" placeholder='Enter the describtion of course' onChange={changeValue} name='description' />
                         </div>
                         <div>
                             <p>Location</p>
-                            <input type="text" placeholder='Enter the City' />
+                            <input value = {value?.city||''} type="text" placeholder='Enter the City' onChange={changeValue} name='city' />
                         </div>
 
                     </div>
@@ -37,19 +56,19 @@ export default function HomePage() {
                     <div className={style.inputs}>
                         <div>
                             <p>Course</p>
-                            <input type="text" placeholder='Enter the name of course' />
+                            <input value = {value?.course||''} type="text" placeholder='Enter the name of course' onChange={changeValue} name='course' />
                         </div>
                         <div>
                             <p>Description</p>
-                            <input type="text" placeholder='Enter the describtion of course' />
+                            <input value = {value?.description||''} type="text" placeholder='Enter the describtion of course' onChange={changeValue} name='description' />
                         </div>
                         <div>
                             <p>Location</p>
-                            <input type="text" placeholder='Enter the City' />
+                            <input value = {value?.city||''} type="text" placeholder='Enter the City' onChange={changeValue} name='city' />
                         </div>
                         <div>
                             <p>ID</p>
-                            <input type="text" placeholder='Enter Id' />
+                            <input  value = {value?.id||''} type="text" placeholder='Enter Id' onChange={changeValue} name='id' />
                         </div>
 
                     </div>
@@ -61,7 +80,7 @@ export default function HomePage() {
                     <div className={style.inputs}>
                         <div>
                             <p>Course</p>
-                            <input type="text" placeholder='Enter the name of course' />
+                            <input value = {value?.course||''}type="text" placeholder='Enter the name of course' onChange={changeValue} name='course' />
                         </div>
                     </div>
                 </>)
@@ -80,20 +99,8 @@ export default function HomePage() {
                     <h2 onClick={changeOpt}>Update</h2>
                     <h2 onClick={changeOpt}>Delete</h2>
                 </div>
-                {/*  <div className={style.inputs}>
-                    <div>
-                        <p>Course</p>
-                        <input type="text" placeholder='Enter the name of course' />
-                    </div>
-                    <div>
-                        <p>Description</p>
-                        <input type="text" placeholder='Enter the describtion of course' />
-                    </div>
-
-                </div> */}
                 {showContent()}
-
-                <div className={style.btn}> apply</div>
+                <div className={style.btn} onClick={send}> apply</div>
             </div>
         </div>
     )
