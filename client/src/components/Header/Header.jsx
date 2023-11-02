@@ -13,8 +13,6 @@ export default function Hedaer() {
                         <Link to={'/'}>viewing</Link>
                     </p>
                 </div>
-                
-
             </div>
         </>
     )

@@ -1,9 +1,12 @@
 import style from './style.module.scss';
 import Header from '../../components/Header/Header'
+import { useGetAllCoursesQuery } from '../../services/courseApi'
+
 
 
 export default function HomePage() {
-    const arr = [
+     const { data} = useGetAllCoursesQuery() 
+    /* const arr = [
         {
             id: 1,
             header: 'C# Course',
@@ -40,8 +43,8 @@ export default function HomePage() {
             description: 'В течение курса студенты ознакомятся с ...',
             location: 'Минск',
         },
-        
-    ];
+
+    ]; */
 
     return (
         <div>
@@ -55,14 +58,14 @@ export default function HomePage() {
 
             <div className={style.blockWrapper}>
                 <div className={style.blocks}>
-                    {arr.map((el, index) => (
+                     {data?.map((el, index) => (
                         <div className={style.course} key={index}>
-                            <h3>{el.header}</h3>
+                            <h3>{el.course}</h3>
                             <p>{el.description}</p>
-                            <p>{el.location}</p>
+                            <p>{el.city}</p>
                         </div>
                     )
-                    )}
+                    )} 
                 </div>
             </div>
         </div>

@@ -1,7 +1,7 @@
 import style from './style.module.scss';
 import Header from '../../components/Header/Header'
 import { useState, useEffect } from 'react'
-import { useCreateCourseMutation, useUpdateCourseMutation, useDeleteCourseMutation } from '../../services/course';
+import { useCreateCourseMutation, useUpdateCourseMutation, useDeleteCourseMutation } from '../../services/courseApi';
 
 export default function HomePage() {
 

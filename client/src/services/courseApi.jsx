@@ -12,19 +12,25 @@ export const courseApi = createApi({
             }),
         }),
         updateCourse: builder.mutation({
-            query: (data)=>({
-                url:`/course/${data.id}`,
+            query: (data) => ({
+                url: `/course/${data.id}`,
                 method: 'PUT',
                 body: data,
             }),
         }),
         deleteCourse: builder.mutation({
-            query: (data)=>({
-                url:`/course/${data.id}`,
+            query: (data) => ({
+                url: `/course/${data.id}`,
                 method: 'DELETE',
             }),
         }),
+        getAllCourses: builder.query({
+            query: () => ({
+                url: '/course',
+                method: `GET`
+            })
+        })
     }),
 })
 
-export const { useCreateCourseMutation, useUpdateCourseMutation, useDeleteCourseMutation} = courseApi
+export const { useCreateCourseMutation, useUpdateCourseMutation, useDeleteCourseMutation, useGetAllCoursesQuery } = courseApi
