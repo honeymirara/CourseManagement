@@ -1,16 +1,16 @@
 .wrapper {
     display: flex;
     flex-direction: column;
-   
+
 
     .inpWrapper {
         margin-top: 40px;
         display: flex;
         justify-content: center;
-        
+
 
         input {
-           
+
             width: 981px;
             height: 48px;
             padding: 0px 12px;
@@ -45,47 +45,51 @@
 }
 
 
-.blockWrapper{
+.blockWrapper {
     display: flex;
     justify-content: center;
 
 
-.blocks {
-    width: 981px;
-    margin-top: 30px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
-
-    .course {
+    .blocks {
+        width: 981px;
+        margin-top: 30px;
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-        width: 448px;
-        padding: 24px 0px 24px 24px;
+        flex-wrap: wrap;
         justify-content: space-between;
+        gap: 24px;
+        border-radius: 12px;
+        border: 1px solid var(--Grey-200, #EAEBED);
 
-    }
 
-    h3 {
-        color: var(--Blue-Main-500, #5E96FC);
-        font-family: Inter;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: normal;
-    }
 
-    p {
-        color: var(--Black, #232134);
-        font-feature-settings: 'clig' off, 'liga' off;
-        font-family: Inter;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 20px;
+        .course {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+            width: 448px;
+            padding: 24px 0px 24px 24px;
+            justify-content: space-between;
+            background: #FFF;
+        }
+
+        h3 {
+            color: var(--Blue-Main-500, #5E96FC);
+            font-family: Inter;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
+
+        p {
+            color: var(--Black, #232134);
+            font-feature-settings: 'clig' off, 'liga' off;
+            font-family: Inter;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+        }
     }
-}
 }
