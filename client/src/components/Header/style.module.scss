@@ -5,34 +5,34 @@
     height: 84px;
     padding: 10px 162px;
     align-items: center;
-    gap:308px;
+    gap: 308px;
     width: 100%;
     background-color: #fff !important;
-    
-    
+
+
 
     .label {
         color: var(--Black, #232134);
         font: 24px 600 Poppins;
         line-height: normal;
         letter-spacing: -0.48px;
+
     }
 
     .nav {
         display: flex;
         align-items: flex-start;
         gap: 10px;
-
-       
     }
 
-    p{
-        color: #232134;
+    p {
+        color: #3b3858;
         font-feature-settings: 'clig' off, 'liga' off;
         font: 600 20px Inter;
-        font-style: normal;
-        
+        font-style: normal;  
     }
+
+    
 
 
 }

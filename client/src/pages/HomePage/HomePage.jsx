@@ -62,7 +62,11 @@ export default function HomePage() {
                         <div className={style.course} key={index}>
                             <h3>{el.course}</h3>
                             <p>{el.description}</p>
-                            <p>{el.city}</p>
+                            <div className={style.location}>
+                                <div className={style.locationImg}></div>
+                                <p>{el.city}</p>
+
+                            </div>
                         </div>)
                     )}
                 </div>

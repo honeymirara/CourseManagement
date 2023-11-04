@@ -59,7 +59,7 @@
         gap: 24px;
         border-radius: 12px;
         border: 1px solid var(--Grey-200, #EAEBED);
-
+       cursor: pointer;
 
 
         .course {
@@ -91,5 +91,20 @@
             font-weight: 400;
             line-height: 20px;
         }
+
+        .location {
+            display: flex;
+            justify-content: space-between;
+             gap: 5px;
+
+            .locationImg {
+                background: url('../HomePage/assets/M.svg') no-repeat;
+                width: 18px;
+                 
+            }
+
+        }
+
+
     }
 }
