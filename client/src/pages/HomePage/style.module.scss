@@ -28,7 +28,7 @@
         }
 
         .btnTag {
-            border-radius: 8px;
+            border-radius: 22px;
             background: var(--Blue-Main-500, #5E96FC);
             display: flex;
             padding: 4px 20px;
@@ -36,11 +36,14 @@
             align-items: center;
             color: #FFF;
             cursor: pointer;
+            transition: 0.5s;
+            font: 400 17px Inter;
+
+
+            &:hover {
+                background-color: #2b5094;
+            }
         }
-
-
-
-
     }
 }
 
@@ -59,7 +62,7 @@
         gap: 24px;
         border-radius: 12px;
         border: 1px solid var(--Grey-200, #EAEBED);
-       cursor: pointer;
+        cursor: pointer;
 
 
         .course {
@@ -75,32 +78,26 @@
 
         h3 {
             color: var(--Blue-Main-500, #5E96FC);
-            font-family: Inter;
-            font-size: 20px;
-            font-style: normal;
-            font-weight: 600;
+            font: 600 20px Inter;
             line-height: normal;
         }
 
         p {
             color: var(--Black, #232134);
             font-feature-settings: 'clig' off, 'liga' off;
-            font-family: Inter;
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 400;
+            font: 400 16px Inter;
             line-height: 20px;
         }
 
         .location {
             display: flex;
             justify-content: space-between;
-             gap: 5px;
+            gap: 5px;
 
             .locationImg {
                 background: url('../HomePage/assets/M.svg') no-repeat;
                 width: 18px;
-                 
+
             }
 
         }
