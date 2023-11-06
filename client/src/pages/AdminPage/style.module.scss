@@ -14,9 +14,10 @@
     .options {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         cursor: pointer;
         font: 700 20px Inter;
+        gap: 24px;
     }
 
     .inputs {
